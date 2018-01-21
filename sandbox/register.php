@@ -1,11 +1,12 @@
 
 
+
+
 <div class="row">
   <div class="col-md-4">
   </div>
   <div class="col-md-4">
-
-          
+  
         <fieldset>
           <legend>Register</legend>
 
@@ -32,6 +33,8 @@
             
           <div class="form-group">
                 <input type="text" class="form-control" name="contact" placeholder="Contact Number">
+                 
+
                  <?php echo form_error('contact'); ?>
           </div>          
 
@@ -52,11 +55,26 @@
             <input type="checkbox" value="remember-me" id="agree" name="agree"> I agree with the terms and conditions
          
            </label>
-         </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </fieldset>
+
+<!-- IMAGE UPLOAD -->
+
+<?php echo $error;?>
+
+<?php echo form_open_multipart('upload_controller/do_upload');?>
+
+<input type="file" name="userfile" size="20" />
+
+<br /><br />
+
+<input type="submit" value="upload" />
+
+</form>
+
+<!--           <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset> -->
     </form>
   </div>
   <div class="col-md-4">
   
   </div>
+

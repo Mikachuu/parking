@@ -1,11 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$route['posts/register'] = 'posts/register';
-$route['posts/login'] = 'posts/login';
-$route['posts/(:any)'] = 'posts/view/$1';
-$route['posts'] = 'posts/index';
-$route['default_controller'] = 'pages/view';
-$route['(:any)'] = 'pages/view/$1';
+$route['default_controller'] = 'Main';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// login routes
+$route['main/update'] = 'main/update';
+$route['register'] = 'login/register';
+$route['login'] = 'login';
+$route['logout'] = 'login/logout';
+$route['main/records'] = 'main/records';
+$route['main/view'] = 'main/view';
+$route['login/register_admin'] = 'login/register_admin';
 

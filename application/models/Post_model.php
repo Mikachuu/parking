@@ -5,6 +5,7 @@
 			$this->load->database();
 		}
 
+
 		public function get_posts($slug = FALSE)
 		{
 			
@@ -13,8 +14,17 @@
 				return $query->result_array();
 			}
 
-				$query = $this->db->get_where('reginfo', array('id' => $slug));
-			}
+				$query = $this->db->get_where('reginfo', array('id'=> $slug));
+				return $query->result_array();
+		}
+
+		public function get_newreg($slug = FALSE)
+		{
+			
+
+				$query = $this->db->get_where('reginfo', array('notif'=>1));
+				return $query->result_array();
+		}
 
 		public function getEmployees($slug = FALSE){
 			if($slug === FALSE){
@@ -28,7 +38,7 @@
 
 
 
-		public function register_post(){
+		public function register_post($post_image){
 			$slug = url_title($this->input->post('employeeid'));
 
 			$data = array(
@@ -39,10 +49,14 @@
 						'contact'=>$this->input->post('contact'),						
 						'department'=>$this->input->post('department'),
 						'password'=>$this->input->post('password'),
+						'plateno'=>$this->input->post('plateno'),
+						'post_image'=>$post_image,
+						// 'filename'=>$this->input->post('userfile'),
 						'notif'=>$this->input->post('notif')
 				);
 			return $this->db->insert('reginfo',$data);
 		}
+		
 
 		function can_login($employeeid, $password){
 			$this ->db->where('employeeid', $employeeid);
@@ -67,5 +81,16 @@
 		{
 			$query = $this->db->select('notif')->where('notif',1)->count_all_results('reginfo');
 			return $query;
+		}
+
+		public function update_post(){
+			// echo $this->input->post('id');die();
+
+			$data = array(
+				'notif' => 0 
+
+			);
+			$this->db->where('id', $this->input->post('id'));
+			return $this->db->update('reginfo', $data);
 		}
 	}

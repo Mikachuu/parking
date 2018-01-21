@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/bootstrap-sandstone.min.css">
 	</head>
+
 	<body>
 		
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -21,11 +22,11 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('posts/register'); ?>/register">Register</a>
+        <a class="nav-link" href="<?php echo base_url('login/register'); ?>">Register</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('posts/login'); ?>">Login</a>
+        <a class="nav-link" href="<?php echo base_url('login/login'); ?>">Login</a>
       </li>
 
       <li class="nav-item">
