@@ -3,7 +3,7 @@
 
 
   <div class="wrapper">
-    <form method="post" action="<?php echo base_url('login/login_validation'); ?>">
+    <form method="post" action="<?php echo base_url('login/login_validation_user'); ?>">
 
     <div class="row">
      <div class="col-md-4">
@@ -13,8 +13,9 @@
 
    <div style="padding-top:30px" class="panel-body" >
     <form class="form-signin"> 
-       <center><img src="../images/admin.png" alt="" style="width:25%">      
-      <h2 class="form-signin-heading">Please login</h2>
+      <!--  <center><img src="../images/admin.png" alt="" style="width:25%">      --> 
+        <center>
+      <h2 class="form-signin-heading">Please login USER</h2><br>
 
       <input type="text" class="form-control" name="employeeid" placeholder="Employee ID" required="" autofocus="" />
         <span class="text-danger"><?php echo form_error('employeeid'); ?></span> <br>

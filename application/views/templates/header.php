@@ -5,6 +5,7 @@
  
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/bootstrap-sandstone.min.css">
+     <link href="<?php echo base_url(); ?>/assets/user_profile/user_profile.css" rel="stylesheet" type="text/css">
 	</head>
 
 	<body>
@@ -26,11 +27,11 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('login/login'); ?>">Login</a>
+        <a class="nav-link" href="<?php echo base_url('login/login'); ?>">ADMIN</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="<?php echo base_url('login/login_user'); ?>">USER</a>
       </li>
 
     </ul>

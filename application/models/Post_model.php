@@ -20,11 +20,12 @@
 
 		public function get_newreg($slug = FALSE)
 		{
-			
 
 				$query = $this->db->get_where('reginfo', array('notif'=>1));
 				return $query->result_array();
 		}
+
+
 
 		public function getEmployees($slug = FALSE){
 			if($slug === FALSE){
@@ -59,10 +60,32 @@
 		
 
 		function can_login($employeeid, $password){
+
 			$this ->db->where('employeeid', $employeeid);
 			$this->db->where('password', $password);
-
+			
 			$query = $this->db->get('reginfo');
+
+			//SELECT * FROM reginfo WHERE employeeid = '$employeeid' AND password = '$password'
+
+			if($query->num_rows()>0)
+			{
+					return true;
+			}
+			else
+
+			{
+				return false;  
+			}
+		}
+
+			function can_login_user($employeeid, $password){
+
+			$this ->db->where('employeeid', $employeeid);
+			$this->db->where('password', $password);
+			
+			
+			$query = $this->db->get_where('reginfo', array('employeeid' => $employeeid));
 
 			//SELECT * FROM reginfo WHERE employeeid = '$employeeid' AND password = '$password'
 
@@ -87,8 +110,9 @@
 			// echo $this->input->post('id');die();
 
 			$data = array(
-				'notif' => 0 
-
+				'notif' => 0, 
+				
+				'rfidno' => $this->input->post('rfidno')
 			);
 			$this->db->where('id', $this->input->post('id'));
 			return $this->db->update('reginfo', $data);

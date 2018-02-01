@@ -15,7 +15,7 @@ class Login extends CI_Controller {
         // $this->load->view('upload_form', array('error' => ' ' ));
         			//http://localhost/parking/main/login
 	 		$data['title'] = 'Log In';
-	 		$this->load->view('templates/header', $data);
+	 		$this->load->view('templates/loginHeader', $data);
 			$this->load->view('login/login_view.php');
 
     }
@@ -51,7 +51,7 @@ class Login extends CI_Controller {
     		$post_image = $_FILES['userfile']['name'];
     		$this->Post_model->register_post($post_image);
     		$this->load->view('templates/header', $data);
-    		$this->load->view('pages/success');
+    		$this->load->view('login/login_user');
     		$this->load->view('templates/footer');	
     	}
     	else
@@ -73,51 +73,111 @@ class Login extends CI_Controller {
 		}
 
 
+    public function login_user()
+		{
+			//http://localhost/parking/main/login
+	 		$data['title'] = 'Log In';
+	 		$this->load->view('templates/header');
+			$this->load->view('login/login_user', $data);
+		}
 
-	public function login_validation(){
+
+
+	public function login_validation()
+	{
 
 			$this->load->library('form_validation');
 
 			$this->form_validation->set_rules('employeeid', 'Employee ID', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
+			
 
 			if($this->form_validation->run())
-			{
-				//true
-				$employeeid = $this->input->post('employeeid');
-				$password = $this->input->post('password'); 
-
-
-				//model function
-
-				$this->load->model('Post_model');
-
-				if($this->Post_model->can_login($employeeid, $password))
 				{
-					$session_data = array(
+						//true
+						$employeeid = $this->input->post('employeeid');
+						$password = $this->input->post('password'); 
 
-						'employeeid' => $employeeid,
-						'fname' => $fname
+						//model function
 
-					);
-					$this->session->set_userdata($session_data);
-					redirect(base_url('login/enter'));
+						$this->load->model('Post_model');
 
+						if($this->Post_model->can_login($employeeid, $password))
+
+						{					
+									$session_data = array(
+
+										'employeeid' => $employeeid,
+										'fname' => $fname,
+										'user_type'=> $user_type	
+
+										);
+
+									$this->session->set_userdata($session_data);
+									redirect(base_url('login/enter'));
+								}
+						else
+						{
+							$this->session->set_flashdata('error', 'Invalid employee id or password');
+							redirect(base_url('login/login'));
+						}
 				}
-
-				else
-				{
-					$this->session->set_flashdata('error', 'Invalid employee id or password');
-					redirect(base_url('login/login'));
-				}
-			}
 
 			else{
 
 				//false no values
 				$this->login();
 			}
-		}
+	}
+
+
+	public function login_validation_user()
+	{
+
+			$this->load->library('form_validation');
+
+			$this->form_validation->set_rules('employeeid', 'Employee ID', 'required');
+			$this->form_validation->set_rules('password', 'Password', 'required');
+			
+
+			if($this->form_validation->run())
+				{
+						//true
+						$employeeid = $this->input->post('employeeid');
+						$password = $this->input->post('password'); 
+
+						//model function
+
+						$this->load->model('Post_model');
+
+						if($this->Post_model->can_login_user($employeeid, $password))
+
+						{					
+									$session_data = array(
+
+										'employeeid' => $employeeid,
+										'fname' => $fname,
+											
+
+										);
+
+									$this->session->set_userdata($session_data);
+									redirect(base_url('login/enter_user'));
+								}
+						else
+						{
+							$this->session->set_flashdata('error', 'Invalid employee id or password');
+							redirect(base_url('login/login'));
+						}
+				}
+
+			else{
+
+				//false no values
+				$this->login();
+			}
+	}
+
 
 		function enter(){
 			if($this->session->userdata('employeeid') != '')
@@ -125,6 +185,22 @@ class Login extends CI_Controller {
 					
 					$this->load->view('templates/loginHeader');		
 					$this->load->view('pages/inside');	
+					$this->load->view('templates/footer');
+					
+			}
+			else
+			{
+				redirect (base_url('login/login'));
+			}
+		}
+
+
+		function enter_user(){
+			if($this->session->userdata('employeeid') != '')
+			{
+					
+					$this->load->view('templates/Header');		
+					$this->load->view('login/user_profile');		
 					$this->load->view('templates/footer');
 					
 			}
