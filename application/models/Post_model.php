@@ -18,13 +18,6 @@
 				return $query->result_array();
 		}
 
-		public function get_newreg($slug = FALSE)
-		{
-
-				$query = $this->db->get_where('reginfo', array('notif'=>1));
-				return $query->result_array();
-		}
-
 
 
 		public function getEmployees($slug = FALSE){
@@ -83,8 +76,9 @@
 
 			$this ->db->where('employeeid', $employeeid);
 			$this->db->where('password', $password);
+			$this->db->where('fname', $fname);
 			
-			
+			$query = $this->db->get_where('reginfo', array('employeeid' => $employeeid));
 			$query = $this->db->get_where('reginfo', array('employeeid' => $employeeid));
 
 			//SELECT * FROM reginfo WHERE employeeid = '$employeeid' AND password = '$password'
@@ -116,5 +110,39 @@
 			);
 			$this->db->where('id', $this->input->post('id'));
 			return $this->db->update('reginfo', $data);
+		}
+
+
+		public function get_newreg($slug = FALSE)
+		{
+
+				$query = $this->db->get_where('reginfo', array('notif'=>1));
+				return $query->result_array();
+		}
+
+
+		public function post_join(){
+
+			$this->db->select('
+				reginfo.id,
+				reginfo.employeeid,
+				reginfo.fname,
+				reginfo.lname,
+				reginfo.email,
+				reginfo.contact,
+				reginfo.department,
+				reginfo.plateno,
+				reginfo.rfidno,
+				parking_tbl.timein,
+				parking_tbl.timeout,
+				TIMEDIFF(parking_tbl.timeout, parking_tbl.timein) as date_stay', FALSE);
+			$this->db->from('reginfo');
+			$this->db->join('parking_tbl', 'parking_tbl.rfidno = reginfo.rfidno');
+			$query = $this->db->get();
+
+
+			 return $query->result_array();
+
+
 		}
 	}

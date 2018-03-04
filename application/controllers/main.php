@@ -43,16 +43,6 @@
 		}
 
 
-		public function records(){
-				// $data['title'] = 'Latest Post';
-
-				$data['reginfo'] = $this ->post_model ->get_newreg();
-	
-				
-				$this->load->view('templates/loginHeader');
-				$this->load->view('posts/new_reg', $data);
-				$this->load->view('templates/footer');
-		}
 
 		public function count_notif()
 		{
@@ -70,6 +60,29 @@
 				$this->load->view('posts/view_new_user', $data);
 				$this->load->view('templates/footer');
 		}
+
+		public function records(){
+				// $data['title'] = 'Latest Post';
+
+				$data['reginfo'] = $this ->post_model ->get_newreg();
+	
+				
+				$this->load->view('templates/loginHeader');
+				$this->load->view('posts/new_reg', $data);
+				$this->load->view('templates/footer');
+		}
+
+ public function record_join()
+    {	
+    
+  
+   		 $data['reginfo'] =$this->post_model->post_join();
+
+
+			$this->load->view('templates/loginHeader');	
+			$this->load->view('pages/parking_records', $data);
+			$this->load->view('templates/footer');
+    }
 
 
 	}

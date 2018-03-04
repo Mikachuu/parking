@@ -97,7 +97,7 @@
 									<div class="profile-info-name"> Joined </div>
 
 									<div class="profile-info-value">
-										<span>2010/06/20</span>
+										<span></span>
 									</div>
 								</div>
 
