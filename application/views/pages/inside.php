@@ -8,7 +8,7 @@
         </li>
         <li class="breadcrumb-item active"><?php
         
-					echo $this->session->userdata('employeeid');?>
+					echo $this->session->userdata('admin_id');?>
 		</li>
       </ol>
       <!-- Icon Cards-->

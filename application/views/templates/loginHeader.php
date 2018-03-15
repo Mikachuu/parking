@@ -28,16 +28,28 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="<?php echo base_url('login/enter');?>">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text" href="<?php echo base_url('pages/inside.php');?>">Dashboard
             </span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+          <a class="nav-link" href="<?php echo base_url('main/records'); ?>">
+            <i class="fa fa-fw fa-area-chart"></i>
+            <span class="nav-link-text">New Register</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="<?php echo base_url('main/record_join'); ?>">
             <i class="fa fa-fw fa-area-chart"></i>
-            <span class="nav-link-text">Records</span>
+            <span class="nav-link-text">Parking Log</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+          <a class="nav-link" href="<?php echo base_url('offenses_controller/view_offenses'); ?>">
+            <i class="fa fa-fw fa-area-chart"></i>
+            <span class="nav-link-text">Offenses</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
@@ -133,7 +145,7 @@
               <span class="badge badge-pill badge-primary" >12 New</span>
             </span>
             <span class="indicator text-primary d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
+              <i class="fa fa-fw fa-circle""><?php echo $this->Post_model->count_message(); ?></i>
             </span>
           </a>
           <div class="dropdown-menu" aria-labelledby="messagesDropdown">

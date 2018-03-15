@@ -4,7 +4,7 @@
        
     <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"> Parking Records </i></div>
+          <i class="fa fa-table"></i></div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
@@ -28,13 +28,10 @@
 </tr>
   	 </thead>
 
-<?php foreach($tourist as $tourist) : 
-
-    
-?>
+<?php foreach($tourist as $tourist) : if ($tourist['date_stay'] > 24){ ?>
 
   	 <tr>
-  	 	<td><p class="<?php $pclass;?>"><?php echo $tourist['userid']; ?></p><br> </td>
+  	 	<td><?php echo $tourist['userid']; ?><br> </td>
   		<td><?php echo $tourist['employeeid']; ?> <br></td>
 		<td><?php echo $tourist['tour_fN']; ?> </td>
 		<td><?php echo $tourist['tour_mN']; ?> <br></td>
@@ -46,14 +43,7 @@
 		<td><?php echo $tourist['rfidno']; ?> <br></td>
 		<td><?php echo $tourist['timein']; ?> <br></td>
 		<td><?php echo $tourist['timeout']; ?> <br></td>
-		<td> <?php if ($tourist['date_stay'] > 24){?><p class="bg-danger"><?php }
-
-    else if ($tourist['date_stay'] <= 24){ ?>
-      <p class="bg-success">
-
-    <?php }
-     echo $tourist['date_stay'];  ?>
-   
+		<td><?php echo $tourist['date_stay'];  }?>
 
 
 <br></td></tr>

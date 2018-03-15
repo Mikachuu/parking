@@ -16,8 +16,8 @@
        <center><img src="../images/admin.png" alt="" style="width:25%">      
       <h2 class="form-signin-heading">Please login</h2>
 
-      <input type="text" class="form-control" name="employeeid" placeholder="Employee ID" required="" autofocus="" />
-        <span class="text-danger"><?php echo form_error('employeeid'); ?></span> <br>
+      <input type="text" class="form-control" name="admin_id" placeholder="Admin id ID" required="" autofocus="" />
+        <span class="text-danger"><?php echo form_error('admin_id'); ?></span> <br>
 
 
       <input type="password" class="form-control" name="password" placeholder="Password" required=""/> 

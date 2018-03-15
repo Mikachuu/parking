@@ -2,18 +2,18 @@
 <div class="content-wrapper">
     <div class="container-fluid">
       <?php echo form_open('main/update'); ?>
-    	 <?php foreach($reginfo as $post); ?>
+    	 <?php foreach($tourist as $post); ?>
     	<div class="card" style="box-shadow: 
     	0 4px 8px 0 rgba(0, 0, 0, 0.2);
     	max-width: 300px;
     	margin: auto;
     	text-align: center;">
 
-      <input type="text" name="id" hidden="true" value="<?php echo $post['id']; ?>"><br>
+      <input type="text" name="userid" hidden="true" value="<?php echo $post['userid']; ?>"><br>
     		
-    		<img src="<?php echo site_url(); ?>uploads/<?php echo $post['post_image']; ?>" style="width:100%">
+    		<img src="<?php echo site_url(); ?>uploads/<?php echo $post['tour_user_image']; ?>" style="width:100%">
   				
-  			<h1><?php echo $post['fname']; ?> <?php echo $post['lname']; ?></h1>
+  			<h1><?php echo $post['tour_fN']; ?> <?php echo $post['tour_lN']; ?></h1>
   			<p class="title" style=" color: grey;
     		font-size: 18px;">
     		<?php echo $post['employeeid']; ?> </p>
@@ -28,7 +28,7 @@
 			<a  style="    
 			text-decoration: none;
     		font-size: 22px;
-    		color: black;"><?php echo $post['department']; ?></i></a> 
+    		color: black;"><?php echo $post['tour_contact']; ?></i></a> 
 
 			<a  style="    
 			text-decoration: none;
@@ -39,7 +39,7 @@
 			text-decoration: none;
     		font-size: 22px;
     		color: black;"><i class="fa fa-facebook"></i></a>  -->
-			<p><?php echo $post['contact']; ?></p>
+	
 			</div>
 
 <!-- <input type="text" name="id" value="<?php echo $post['id']; ?>"><br> -->

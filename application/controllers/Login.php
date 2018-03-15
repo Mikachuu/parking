@@ -20,49 +20,7 @@ class Login extends CI_Controller {
 
     }
 
-    public function register()
-    {
-    	$this->form_validation->set_error_delimiters('<small class="text-danger">','</small>');
-    	$this->form_validation->set_rules('employeeid', 'Employe ID', 'required');
-    	$this->form_validation->set_rules('fname', 'First Name', 'required');
-    	$this->form_validation->set_rules('lname', 'Last Name', 'required');
-    	$this->form_validation->set_rules('email', 'Email', 'required');
-    	$this->form_validation->set_rules('contact', 'Contact Number', 'required');
-    	$this->form_validation->set_rules('department', 'Department', 'required');
-    	$this->form_validation->set_rules('password', 'Password', 'required');
-    	$this->form_validation->set_rules('plateno', 'Plate Number', 'required');
-
-    	$config = array(
-    	
-    	'upload_path' => './uploads/',
-    	'allowed_types' => "gif|jpg|png|jpeg|pdf",
-    	'overwrite' => TRUE,
-    	'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
-    	'max_height' => "1500",
-    	'max_width' => "1024"
-    	);
-    	$this->load->library('upload', $config);
-    	$this->upload->initialize($config);
-
-    	if (($this->form_validation->run()==true) && ($this->upload->do_upload()==true))
-    	{
-    		// register successful
-    		$data = array('upload_data' => $this->upload->data());
-    		$post_image = $_FILES['userfile']['name'];
-    		$this->Post_model->register_post($post_image);
-    		$this->load->view('templates/header', $data);
-    		$this->load->view('login/login_user');
-    		$this->load->view('templates/footer');	
-    	}
-    	else
-    	{
-    		// register failed
-    		$error = array('error' => $this->upload->display_errors());
-    		$this->load->view('templates/header', $error);
-    		$this->load->view('login/register_view.php');
-    		$this->load->view('templates/footer');
-    	}
-    }
+/*5*/
 
     public function login()
 		{
@@ -88,28 +46,27 @@ class Login extends CI_Controller {
 
 			$this->load->library('form_validation');
 
-			$this->form_validation->set_rules('employeeid', 'Employee ID', 'required');
+			$this->form_validation->set_rules('admin_id', 'Admin ID', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
 			
 
 			if($this->form_validation->run())
 				{
 						//true
-						$employeeid = $this->input->post('employeeid');
+						$admin_id = $this->input->post('admin_id');
 						$password = $this->input->post('password'); 
 
 						//model function
 
 						$this->load->model('Post_model');
 
-						if($this->Post_model->can_login($employeeid, $password))
+						if($this->Post_model->can_login($admin_id, $password))
 
 						{					
 									$session_data = array(
 
-										'employeeid' => $employeeid,
-										'fname' => $fname,
-										'user_type'=> $user_type	
+										'admin_id' => $admin_id,
+										'fname' => $fname
 
 										);
 
@@ -118,7 +75,7 @@ class Login extends CI_Controller {
 								}
 						else
 						{
-							$this->session->set_flashdata('error', 'Invalid employee id or password');
+							$this->session->set_flashdata('error', 'Invalid Admin id or password');
 							redirect(base_url('login/login'));
 						}
 				}
@@ -180,7 +137,7 @@ class Login extends CI_Controller {
 
 
 		function enter(){
-			if($this->session->userdata('employeeid') != '')
+			if($this->session->userdata('admin_id') != '')
 			{
 					
 					$this->load->view('templates/loginHeader');		

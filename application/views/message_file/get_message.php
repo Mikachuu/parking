@@ -1,0 +1,1 @@
+<?php echo "Sample message here" ?>

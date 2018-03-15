@@ -16,7 +16,7 @@
 		public function index()
 		{
 
-				$data['reginfo'] = $this->post_model->get_posts();
+				$data['tourist'] = $this->post_model->get_posts();
 
 				$this->load->view('templates/Header');
 				$this->load->view('pages/home');
@@ -24,9 +24,9 @@
 		}
 
 		public function view($slug = NULL){
-			$data['reginfo'] = $this->post_model->get_posts($slug);
+			$data['tourist'] = $this->post_model->get_posts($slug);
 
-			if(empty($data['reginfo']))
+			if(empty($data['tourist']))
 			{
 				show_404();
 
@@ -46,7 +46,7 @@
 
 		public function count_notif()
 		{
-			$query = $this->db->select('notif')->where('notif',1)->count_all_results('reginfo');
+			$query = $this->db->select('notif')->where('notif',0)->count_all_results('tourist');
 			return $query;
 		}
 
@@ -54,7 +54,7 @@
 		public function view_new_user(){
 				$data['title'] = 'New users';
 
-				$data['reginfo'] = $this ->post_model ->getEmployees();
+				$data['tourist'] = $this ->post_model ->getEmployees();
 				
 				$this->load->view('templates/loginHeader');
 				$this->load->view('posts/view_new_user', $data);
@@ -64,7 +64,7 @@
 		public function records(){
 				// $data['title'] = 'Latest Post';
 
-				$data['reginfo'] = $this ->post_model ->get_newreg();
+				$data['tourist'] = $this ->post_model ->get_newreg();
 	
 				
 				$this->load->view('templates/loginHeader');
@@ -76,7 +76,7 @@
     {	
     
   
-   		 $data['reginfo'] =$this->post_model->post_join();
+   		 $data['tourist'] =$this->post_model->post_join();
 
 
 			$this->load->view('templates/loginHeader');	
