@@ -12,20 +12,13 @@
 
 <!--   <table class="table table-striped table-bordered table-hover">	 -->
   	<tr>
-  	 	<th>Id</th>
-  	 	<th>Employee Id</th>
-  	 	<th>First Name</th>
-      <th>Middle Name</th>
-  	 	<th>Last Name</th>
-  	 	<th>Email</th>
-  	 	<th>Contact #</th>
-  	 	<th>Address</th>
-  	 	<th>Plate No</th>
-  	 	<th>RFID No</th>
-  	 	<th>Time In</th>
-  	 	<th>Time Out</th>
-  	 	<th>No. of Hours</th>
-</tr>
+  	 <!-- 	<th>Id</th> -->
+  	 	<!-- <th>Employee Id</th> -->
+  	 	<th>Floor</th>
+      <th>Slot</th>
+  	 	<th>Category</th>
+  	 	<th>Date Created</th>
+    </tr>
   	 </thead>
 
 <?php foreach($tourist as $tourist) : 
@@ -34,8 +27,8 @@
 ?>
 
   	 <tr>
-  	 	<td><p class="<?php $pclass;?>"><?php echo $tourist['userid']; ?></p><br> </td>
-  		<td><?php echo $tourist['employeeid']; ?> <br></td>
+<!--   	 	<td><p class="<?php $pclass;?>"><?php echo $tourist['tour_id']; ?></p><br> </td> -->
+  	<!-- 	<td><?php echo $tourist['employeeid']; ?> <br></td> -->
 		<td><?php echo $tourist['tour_fN']; ?> </td>
 		<td><?php echo $tourist['tour_mN']; ?> <br></td>
     <td><?php echo $tourist['tour_lN']; ?> <br></td>

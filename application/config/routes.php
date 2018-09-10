@@ -7,7 +7,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 // login routes
 $route['offenses_controller/view_offenses']= 'offenses_controller/view_offenses';
-
+$route['Signup_user/index'] = 'user/register_user';
 $route['main/update'] = 'main/update';
 $route['register'] = 'login/register';
 $route['login'] = 'login';

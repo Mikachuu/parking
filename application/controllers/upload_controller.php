@@ -44,7 +44,7 @@ class Upload_Controller extends CI_Controller {
 		$this->upload->initialize($config);
 
 
-		if($this->upload->do_upload())
+		if($this->upload->do_upload('userfile'))
 		{
 			$data = array('upload_data' => $this->upload->data());
 			// $this->load->view('pages/upload_success',$data);
@@ -61,7 +61,7 @@ class Upload_Controller extends CI_Controller {
 				if($this->form_validation->run() === FALSE){
 
 							$this->load->view('templates/header');
-							$this->load->view('pages/file_view.php', $data);
+							$this->load->view('login/register_view.php', $data);
 							$this->load->view('templates/footer');	
 				} else{
 					$this->post_model->register_post();
@@ -73,12 +73,13 @@ class Upload_Controller extends CI_Controller {
 
 		}
 
+
 		
 		else
 		{
 			$error = array('error' => $this->upload->display_errors());
 			$this->load->view('templates/header');
-			$this->load->view('pages/file_view', $error);
+			$this->load->view('login/register_view', $error);
 			$this->load->view('templates/footer');	
 		}
 		}

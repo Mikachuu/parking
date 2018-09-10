@@ -159,7 +159,7 @@
     
     <div class="col-md-4">
  <?php echo $error;?>
- <?php echo form_open_multipart('register');?>
+ <form action="<?php echo base_url('upload_controller/do_upload'); ?>" method="post">
 
         <fieldset>
           <legend>Register</legend>

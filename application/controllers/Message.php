@@ -13,9 +13,29 @@
 		public function get_message()
 		{
 
-				$data['tourist'] = $this->post_model->get_posts();
+				$data['messages_tbl'] = $this->post_model->get_posts_message();
 
-				$this->load->view('templates/Header');
-				$this->load->view('message_file/get_message');
+				$this->load->view('templates/loginHeader');
+				$this->load->view('message_file/get_message', $data);
 				$this->load->view('templates/footer');
 		}
+
+		public function view_message($employeeid = NULL){
+			$data['messages_tbl'] = $this->post_model->get_posts_message($employeeid);
+
+			if(empty($data['messages_tbl']))
+			{
+				show_404();
+
+			}
+				$this->load->view('templates/loginHeader');
+				$this->load->view('message_file/view_message', $data);
+				$this->load->view('templates/footer');
+		}
+
+		public function snd_msg(){
+
+			$this->post_model->send_message();
+			redirect('message/view_message');
+		}
+	}

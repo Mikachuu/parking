@@ -4,7 +4,7 @@
        
     <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i></div>
+          <i class="fa fa-table"></i>Offenses Table</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
@@ -12,8 +12,8 @@
 
 <!--   <table class="table table-striped table-bordered table-hover">	 -->
   	<tr>
-  	 	<th>Id</th>
-  	 	<th>Employee Id</th>
+  	 	<!-- <th>Id</th> -->
+  	<!--  	<th>Employee Id</th> -->
   	 	<th>First Name</th>
       <th>Middle Name</th>
   	 	<th>Last Name</th>
@@ -28,11 +28,11 @@
 </tr>
   	 </thead>
 
-<?php foreach($tourist as $tourist) : if ($tourist['date_stay'] > 24){ ?>
+<?php foreach($tourist as $tourist) : if ($tourist['date_stay'] > 24) { ?>
 
   	 <tr>
-  	 	<td><?php echo $tourist['userid']; ?><br> </td>
-  		<td><?php echo $tourist['employeeid']; ?> <br></td>
+  	<!--  	<td><?php echo $tourist['tour_id']; ?><br> </td> -->
+  	<!-- 	<td><?php echo $tourist['employeeid']; ?> <br></td> -->
 		<td><?php echo $tourist['tour_fN']; ?> </td>
 		<td><?php echo $tourist['tour_mN']; ?> <br></td>
     <td><?php echo $tourist['tour_lN']; ?> <br></td>

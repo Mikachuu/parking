@@ -15,8 +15,21 @@ class Login extends CI_Controller {
         // $this->load->view('upload_form', array('error' => ' ' ));
         			//http://localhost/parking/main/login
 	 		$data['title'] = 'Log In';
-	 		$this->load->view('templates/loginHeader', $data);
+	 		$this->load->view('templates/Header');
 			$this->load->view('login/login_view.php');
+			$this->load->view('templates/footer');
+
+    }
+
+        public function register_user()
+    {
+
+        // $this->load->view('upload_form', array('error' => ' ' ));
+        			//http://localhost/parking/main/login
+	 		
+	 		$this->load->view('templates/Header');
+			$this->load->view('login/register_view.php');
+			$this->load->view('templates/footer');
 
     }
 
@@ -46,26 +59,26 @@ class Login extends CI_Controller {
 
 			$this->load->library('form_validation');
 
-			$this->form_validation->set_rules('admin_id', 'Admin ID', 'required');
+			$this->form_validation->set_rules('admin_username', 'Admin ID', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
 			
 
 			if($this->form_validation->run())
 				{
 						//true
-						$admin_id = $this->input->post('admin_id');
+						$admin_username = $this->input->post('admin_username');
 						$password = $this->input->post('password'); 
 
 						//model function
 
 						$this->load->model('Post_model');
 
-						if($this->Post_model->can_login($admin_id, $password))
+						if($this->Post_model->can_login($admin_username, $password))
 
 						{					
 									$session_data = array(
 
-										'admin_id' => $admin_id,
+										'admin_id' => $admin_username,
 										'fname' => $fname
 
 										);

@@ -34,45 +34,53 @@
             </span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="New Registers">
           <a class="nav-link" href="<?php echo base_url('main/records'); ?>">
-            <i class="fa fa-fw fa-area-chart"></i>
+            <i class="fa fa-address-book-o"></i>
             <span class="nav-link-text">New Register</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Parking Log">
           <a class="nav-link" href="<?php echo base_url('main/record_join'); ?>">
-            <i class="fa fa-fw fa-area-chart"></i>
+            <i class="fa fa-automobile"></i>
             <span class="nav-link-text">Parking Log</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Offenses">
           <a class="nav-link" href="<?php echo base_url('offenses_controller/view_offenses'); ?>">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Offenses</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="New Admin">
           <a class="nav-link" href="<?php echo base_url(); ?>login/register_admin">
-            <i class="fa fa-fw fa-table"></i>
+            <i class="fa fa-address-book"></i>
             <span class="nav-link-text">New Admin</span>
           </a>
         </li>
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="<?php echo base_url('Incident/view_incident'); ?>">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">Incident Report</span>
+          </a>
+        </li>
+
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Messages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMessages" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Messages</span>
+            <span class="nav-link-text">Parking Management</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseMessages">
             <li>
-              <a href="navbar.html">Navbar</a>
+              <a href="<?php echo base_url('Slots/view_slot'); ?>">Parking Slots</a>
             </li>
             <li>
-              <a href="cards.html">Cards</a>
+              <a href="<?php echo base_url('Slots/view_manage'); ?>">Manage Slot</a>
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+<!--         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">Example Pages</span>
@@ -91,8 +99,8 @@
               <a href="blank.html">Blank Page</a>
             </li>
           </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+        </li> -->
+ <!--        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-sitemap"></i>
             <span class="nav-link-text">Menu Levels</span>
@@ -122,13 +130,8 @@
               </ul>
             </li>
           </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="#">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
-          </a>
-        </li>
+        </li> -->
+
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -169,15 +172,22 @@
               <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all messages</a>
+            <a class="dropdown-item small" href="<?php echo base_url('message/get_message') ?>">View all messages</a>
           </div>
         </li>
         <li class="nav-item dropdown">
+          <a class="nav-link" href="<?php echo base_url('main/increcords');?>">
+            <i class="fa fa-bell-o"></i>
+              <span class="badge badge-pill badge-warning"> <?php echo $this->Post_model->count_inc(); ?></span>
+          </a>
+        </li>
+          <li class="nav-item dropdown">
           <a class="nav-link" href="<?php echo base_url('main/records');?>">
             <i class="fa fa-fw fa-bell"></i>
               <span class="badge badge-pill badge-warning"> <?php echo $this->Post_model->count_notif(); ?></span>
           </a>
         </li>
+
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 mr-lg-2">
             <div class="input-group">
@@ -198,4 +208,4 @@
     </div>
   </nav>
 
-    
+    </body>

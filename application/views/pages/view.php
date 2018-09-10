@@ -2,44 +2,77 @@
 <div class="content-wrapper">
     <div class="container-fluid">
       <?php echo form_open('main/update'); ?>
-    	 <?php foreach($tourist as $post); ?>
-    	<div class="card" style="box-shadow: 
-    	0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    	max-width: 300px;
-    	margin: auto;
-    	text-align: center;">
+            <center><h3> New Registered User </h3>
+    	     <?php foreach($user_tbl as $post); ?>
+    	
+          <div class="card" style="box-shadow: 
+    	     0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    	     max-width: 600px;
+           margin: auto;
+    	     text-align: left;">
 
-      <input type="text" name="userid" hidden="true" value="<?php echo $post['userid']; ?>"><br>
-    		
-    		<img src="<?php echo site_url(); ?>uploads/<?php echo $post['tour_user_image']; ?>" style="width:100%">
-  				
-  			<h1><?php echo $post['tour_fN']; ?> <?php echo $post['tour_lN']; ?></h1>
-  			<p class="title" style=" color: grey;
-    		font-size: 18px;">
-    		<?php echo $post['employeeid']; ?> </p>
+      <input type="text" name="employeeid" hidden="true" value="<?php echo $post['employeeid']; ?>"><br>
+
+      <input type="text" name="title" hidden="true" value="<?php echo "Greetings!" ?>">
+      <input type="text" name="message" hidden="true" value="<?php echo "Get your rfid card!" ?>">
+
+      <table width="700">
+      <tr>
+      <td>
+      <img src="<?php echo base_url('assets/images/admin.png'); ?>" style="width:100px; margin-left: 45%;">
+      </td>
+      <tr>
+      <td>
+         <p class="title" style=" font-size: 18px;margin-left: 5%;">
+         <b>Name:</b>   
+  			<?php echo strtoupper($post['fname']); ?> <?php echo strtoupper($post['lname']); ?>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td>
+        <p class="title" style=" font-size: 18px;margin-left: 5%;">
+        <b>Employee ID:</b>  <?php echo ($post['employeeid']); ?> 
+       
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+          <p class="title" style="font-size: 18px;margin-left: 5%;">   
+          <b>Email: </b>
+          <?php echo ($post['email']); ?> </p>
+      </td>
+    </tr>
+
+     <tr>
+      <td>
+              <p style="font-size: 18px; color: black;margin-left: 5%;">
+              <b>Contact No: </b>
+              <?php echo $post['contactno']; ?></p> 
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+    
+            <p style="font-size: 18px; color: black;margin-left: 5%; margin-bottom: 15%;">
+              <b>Plate No.:  </b><?php echo $post['plateno']; ?></p>
+      </td>
+    </tr>
 
 
-			
-			<a style="    
-			text-decoration: none;
-    		font-size: 22px;
-    		color: black;"><?php echo $post['email']; ?></i></a> 
 
-			<a  style="    
-			text-decoration: none;
-    		font-size: 22px;
-    		color: black;"><?php echo $post['tour_contact']; ?></i></a> 
+  </table>
+  		
 
-			<a  style="    
-			text-decoration: none;
-    		font-size: 22px;
-    		color: black;"><?php echo $post['plateno']; ?></i></a>
 
 		<!-- 	<a  style="    
 			text-decoration: none;
     		font-size: 22px;
     		color: black;"><i class="fa fa-facebook"></i></a>  -->
-	
+	<br>
 			</div>
 
 <!-- <input type="text" name="id" value="<?php echo $post['id']; ?>"><br> -->
@@ -54,9 +87,9 @@
 
 
 
-
+<br><br>
 <center>
-	 <a class="nav-link" data-toggle="modal" data-target="#approvemodal">
+	 <button class="nav-link" data-toggle="modal" data-target="#approvemodal">
            <i class="fa fa-fw fa-sign-out"></i>Approve</a>
             </i>
        </a>
@@ -67,7 +100,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="approvemodalLabel">Heads up!</h5>
+            <h5 class="modal-title" id="approvemodalLabel">New User</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
 
               <span aria-hidden="true">×</span>
@@ -75,7 +108,7 @@
           </div>
           <div class="modal-body">Approve Application?</div>
 
-           <input type="text" class="form-control" name="rfidno" placeholder="RFID Number" required="" autofocus="" />
+           <input type="text" style="margin: 5%; width: 90%;" class="form-control" name="rfidno" placeholder="RFID Number" required="" autofocus="" />
          
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>

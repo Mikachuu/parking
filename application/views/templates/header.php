@@ -1,46 +1,21 @@
-<html>
-	<head>
-		<title>Parking Management </title>
-		<!-- <link rel ="stylesheet" href="https://bootswatch.com/4/sandstone/bootstrap.min.css"> -->
- 
+<!DOCTYPE html>
+<html lang="en">
 
-    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/bootstrap-sandstone.min.css">
-     <link href="<?php echo base_url(); ?>/assets/user_profile/user_profile.css" rel="stylesheet" type="text/css">
-	</head>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Parking Management Admin</title>
+  <!-- Bootstrap core CSS-->
+  <link  rel="stylesheet" href="<?php echo base_url(); ?>/assets/vendor/bootstrap/css/bootstrap.min.css">
+  <!-- Custom fonts for this template-->
+  <link href="<?php echo base_url(); ?>/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="<?php echo base_url(); ?>/assets/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="<?php echo base_url(); ?>/assets/css/sb-admin.css" rel="stylesheet">
+</head>
 
-	<body>
-		
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  			<a class="navbar-brand" href="<?php echo base_url(); ?>">UPark</a>
- 			 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
-    			<span class="navbar-toggler-icon"></span>
-  			</button>
 
-  <div class="collapse navbar-collapse" id="navbarColor01">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url(); ?>"> Home</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('login/register'); ?>">Register</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('login/login'); ?>">ADMIN</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('login/login_user'); ?>">USER</a>
-      </li>
-
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-
-<div class="container-fluid">
-	<br>

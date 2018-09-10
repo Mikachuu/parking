@@ -10,20 +10,20 @@
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="admin_fname">First name</label>
-                <input class="form-control" id="admin_fname" name="admin_fname" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
-                  <?php echo form_error('admin_fname'); ?>
+                <label for="fname">First name</label>
+                <input class="form-control" id="fname" name="fname" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
+                  <?php echo form_error('fname'); ?>
               </div>
               <div class="col-md-6">
-                <label for="admin_lname">Last name</label>
-                <input class="form-control" id="admin_lname" name="admin_lname" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
+                <label for="lname">Last name</label>
+                <input class="form-control" id="lname" name="lname" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
               </div>
             </div>
           </div>
 
           <div class="form-group">
             <label for="email">Admin ID </label>
-            <input class="form-control" id="admin_id" name="admin_id" type="text" aria-describedby="admin_id" placeholder="Admin ID">
+            <input class="form-control" id="employeeid" name="employeeid" type="text" aria-describedby="employeeid" placeholder="Admin ID">
           </div>
 
           <div class="form-group">
